@@ -2,6 +2,7 @@
 run c/c++ from sdcard in termux
 
 ## Installation
+paste in termux
 ```
 pkg update & pkg upgrade;
 pkg install git clang cmake make;
