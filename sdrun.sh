@@ -15,7 +15,7 @@ if (( $ARGC >= 1 )); then
 	exec_path=$HOME_PATH/$(echo $project_path | tr / -)
 	
 	if [ ! -f $project_path/CMakeLists.txt ]; then
-		echo -e "${RED}is not directory or does not contain CMakeLists.txt.${NONE}"
+		echo -e "${RED}Error: The path must be a directory that contains CMakeLists.txt${NONE}"
 		exit 1
 	fi
 	
@@ -48,13 +48,13 @@ if (( $ARGC >= 1 )); then
 	fi
 	
 	if [ ! -f $exec_path/$exec_name ]; then
-		echo -e "${RED}Target not found. Specify the name of the executable in the first line of CMakeLists.txt via '# <binary-name>'.${NONE}"
+		echo -e "${RED}Error: Target not found. Specify the name of the executable in the first line of CMakeLists.txt via '# <binary-name>'${NONE}"
 		exit 1
 	fi
 	
 	$exec_path/$exec_name ${@:2}
 else
-	echo "Usage: sdrun <cmakelists-dir> [bin-args]"
-	echo "Note: Specify the name of the executable in the first line of CMakeLists.txt via '# <binary-name>'."
+	echo "usage: sdrun <cmakelists-dir> [bin-args]"
+	echo "note.: Specify the name of the executable in the first line of CMakeLists.txt via '# <binary-name>'"
 fi
 
