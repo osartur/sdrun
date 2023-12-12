@@ -10,7 +10,7 @@ if [ ! -d $HOME_PATH ]; then
 	mkdir $HOME_PATH
 fi
 
-if (( $ARGC == 1 )); then
+if (( $ARGC >= 1 )); then
 	project_path=$(realpath $(pwd)/$1)
 	exec_path=$HOME_PATH/$(echo $project_path | tr / -)
 	
@@ -52,9 +52,9 @@ if (( $ARGC == 1 )); then
 		exit 1
 	fi
 	
-	$exec_path/$exec_name
+	$exec_path/$exec_name ${@:2}
 else
-	echo "Usage: sdrun <cmakelists-dir>"
+	echo "Usage: sdrun <cmakelists-dir> [bin-args]"
 	echo "Note: Specify the name of the executable in the first line of CMakeLists.txt via '# <binary-name>'."
 fi
 
