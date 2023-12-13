@@ -15,4 +15,4 @@ rm -rf sdrun/
 ```
 sdrun <cmake-dir> [bin-args]
 ```
-Note: specify the name of the executable in the first line of CMakeLists.txt via '# <binary-name>'
+Note: specify the name of the executable in the first line of CMakeLists.txt via "# <binary-name>"
